@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <title>E-Aid</title>
+  <script src="{% static 'jQuery/jquery-3.4.1.js' %}"></script>
+  <script src="{% static 'jQuery/jquery-ui.js' %}"></script>
+  <script src="{% static 'jQuery/popper.min.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'Bootstrap/css/bootstrap.css' %}">
+  <script src="{% static 'Bootstrap/js/bootstrap.js' %}"></script>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'DataTables/jquery.dataTables.min.css' %}" />
+  <script src="{% static 'DataTables/jquery.dataTables.min.js' %}"></script>
+  <link href="{% static "icons/css/all.css" %}" rel="stylesheet">
+  <script defer src="{% static 'icons/js/all.js' %}"></script>
+  <link rel="stylesheet" href="{% static "css/override.css" %}">
+
+  <link rel="shortcut icon" type="image/png" href="{% static 'basic_app/pictures/logomini.png' %}" />
+
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand navbar-light bg-light">
+    <div class="container">
+      <div class="navbar-nav float-none">
+        <a class="navbar-brand float-none" href="{% url 'children_app:child' %}">
+
+          <img src="{% static "basic_app/pictures/microsoft.png" %}" width="30" height="30" class="d-inline-block align-top" alt="">
+          <img src="{% static "basic_app/pictures/logomini.png" %}" width="30" height="30" class="d-inline-block align-top" alt="">
+
+          Home
+        </a>
+
+<!--        <a class="nav-item nav-link" href="{% url 'admin:index' %}">Admin</a>-->
+          <a class="nav-item nav-link" href="{% url 'children_app:child' %}">Children</a>
+      </div>
+
+        <ul class="navbar-nav ml-auto">
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <span class="navbar-text"> Hello, {{user.username}}!</span>
+            <a class="btn btn-dark" href="{% url 'userhandler_app:logout' %}" role="button">Logout</a>
+          </li>
+
+          {% else %}
+          <li class="nav-item">
+              <a class="btn btn-dark" href="{% url 'userhandler_app:register' %}" role="button">Register</a>
+          </li>
+<!--          <li class="nav-item">-->
+<!--              <a class="btn btn-dark ml-1" href="{% url 'userhandler_app:user_login' %}?next={{request.path}}" role="button">Login</a>-->
+<!--          </li>-->
+          {% endif %}
+        </ul>
+      </div>
+
+
+
+  </nav>
+
+  <div class="container">
+    <!-- {{ nav |safe }} -->
+    {% block body_block %}
+    {# Anything outside of this will be inherited if you use extend.#}
+    {% endblock %}
+  </div>
+  <div class="container">
+    {% block button_block %}
+    {# Anything outside of this will be inherited if you use extend.#}
+    {% endblock %}
+  </div>
+
+</body>
+
+
+</html>

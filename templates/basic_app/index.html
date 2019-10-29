@@ -1,0 +1,17 @@
+{% extends "basic_app/base.html" %}
+{% block body_block%}
+{% load static%}
+<div class="jumbotron mt-4">
+    <div class="text-center">
+    <img src="{% static "basic_app/pictures/logo.png"%}" width="600" height="300" alt="">
+    </div>
+    <br>
+    <div style="text-align: Left;">
+        <h1 class="display-4">Welcome  </h1>
+        <a  style="margin:auto" class="btn btn-primary btn-lg" href="{% url 'userhandler_app:logout' %}" role="button">Children</a>
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% extends "basic_app/base.html" %}
+
+{% load qr_code %}
+{% block body_block %}
+    <br>
+    <h1 style="text-align:center;">{{ title }}</h1>
+    <br>
+    <div style="text-align:center;">
+        <!--<h2 style="text-align:center;">QR code text: {{ qr_text }}</h2>
+        <br>-->
+        {% qr_from_text qr_text size="M" %}
+    </div>
+{% endblock %}

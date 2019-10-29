@@ -1,0 +1,44 @@
+{% extends "basic_app/base.html" %}
+{% block body_block %}
+{% load static%}
+<style>
+  .smallbox {width:250px;  float: right;  overflow: auto;}
+  .clearfix {
+    overflow: auto;
+
+  }
+  .right{float: right;}
+  .left{float: left;}
+  .rounded5{border-radius: 5px;}
+</style>
+
+
+<div class="jumbotron clearfix mt-4">
+  <div>
+    <h1>Welcome To Emotional Aid!</h1>
+    <p class="lead">We provide help for children who find it difficult to express or recognize emotions and much-much more! </p>
+  </div>
+  <div class="left">
+    <img src="{% static 'pictures/children.jpg'%}" width="700" height="400" class="rounded5" alt="">
+
+  </div>
+
+  <div class="smallbox mr-5">
+  <h1 class="mb-2">Sign In</h1>
+  <form action="{% url 'userhandler_app:user_login' %}" method="POST">
+    {% csrf_token %}
+    <div class="form-group mt-3" >
+    <label for="username">Username: </label>
+    <input type="text" class="form-control" name="username" id="username" placeholder="Enter Username">
+
+    <label for="password">Password: </label>
+    <input type="password" class="form-control" id="password" name="password">
+      <input type="hidden" name="next" value="{{ request.GET.next}}"/>
+
+    <input name="" class = "mt-3 btn btn-primary" type="submit" value="Sign In!">
+    </div>
+  </form>
+  </div>
+</div>
+
+{% endblock %}

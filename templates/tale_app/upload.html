@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends "tale_app/talebase.html" %}
+{%load static%}
+{% block body_block%}
+    <div class="center">
+        <h1 class="myText"> Picture is taken!</h1>
+        <form id="form" enctype="multipart/form-data" method="post"  class= "add_form" style="display: none;">
+            {{form.as_p}}
+        {% csrf_token %}
+        </form>
+    </div>
+
+
+
+  <script type="text/javascript">
+    document.getElementById("id_image").onchange = function() {
+      document.getElementById("form").submit();
+      document.getElementById("id_image").focus();
+    };
+  </script>
+{% endblock %}

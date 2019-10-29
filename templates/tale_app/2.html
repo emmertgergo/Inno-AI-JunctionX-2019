@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends "tale_app/talebase.html" %}
+
+{% block body_block%}
+{%load static%}
+<body>
+    <div class="horizontalcenter">
+         <h1 class="myText"> {{ item.tasktext }}</h1>
+        <div id="wrap" >
+            <div id="over" >
+
+            </div>
+            <div id="under">
+                <div>
+                    <input type="image" src="/media/emotions/{{emojiset}}/0.png" alt="Submit" width="95" height="95" id="0" class="myEmotionButton post_emotion">
+                    <input type="image" src="/media/emotions/{{emojiset}}/1.png" alt="Submit" width="95" height="95" id="1" class="myEmotionButton post_emotion">
+                    <input type="image" src="/media/emotions/{{emojiset}}/2.png" alt="Submit" width="95" height="95" id="2" class="myEmotionButton post_emotion">
+                    <input type="image" src="/media/emotions/{{emojiset}}/3.png" alt="Submit" width="95" height="95" id="3" class="myEmotionButton post_emotion">
+                    <input type="image" src="/media/emotions/{{emojiset}}/4.png" alt="Submit" width="95" height="95" id="4" class="myEmotionButton post_emotion">
+                    <input type="image" src="/media/emotions/{{emojiset}}/5.png" alt="Submit" width="95" height="95" id="5" class="myEmotionButton post_emotion">
+                    <input type="image" src="/media/emotions/{{emojiset}}/6.png" alt="Submit" width="95" height="95" id="6" class="myEmotionButton post_emotion">
+                    <input type="image" src="/media/emotions/{{emojiset}}/7.png" alt="Submit" width="95" height="95" id="7" class="myEmotionButton post_emotion">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>
+{% csrf_token %}
+{{ next_content_url|json_script:"next_content_url" }}
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src = "{% static 'js/contentswitch.js' %}"></script>
+
+{% endblock %}

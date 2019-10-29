@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tale</title>
+    <script src="{% static 'jQuery/jquery-3.4.1.js' %}"></script>
+    <script src="{% static 'jQuery/jquery-ui.js' %}"></script>
+    <script src="{% static 'jQuery/popper.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'Bootstrap/css/bootstrap.css' %}">
+    <script src="{% static 'Bootstrap/js/bootstrap.js' %}"></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'DataTables/jquery.dataTables.min.css' %}" />
+    <script src="{% static 'DataTables/jquery.dataTables.min.js' %}"></script>
+    <link href="{% static "icons/css/all.css" %}" rel="stylesheet">
+    <script defer src="{% static 'icons/js/all.js' %}"></script>
+    <link rel="stylesheet" href="{% static "css/override.css" %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'basic_app/pictures/logomini.png' %}" />
+</head>
+<body>
+</body>
+</html>
+
+<div>
+{% block body_block %}
+{# Anything outside of this will be inherited if you use extend.#}
+{% endblock %}
+</div>
+
+<style>
+body {
+    background-image: url('https://hackathoninnoai.blob.core.windows.net/media/DD-Grunge-Frame-Background-44090-Preview.jpg');
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position-x: center;
+    background-color: #ffe68b;
+}
+#myVideo{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  min-width: 50%;
+  min-height: 50%;
+  width: auto;
+  height: auto;
+  z-index: -1000;
+  overflow: hidden;
+}
+
+</style>
+{% csrf_token %}
+{{ next_content_url|json_script:"next_content_url" }}
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src = "{% static 'js/contentswitch.js' %}"></script>
+<script type="text/javascript" src = "{% static 'js/navigation.js' %}"></script>

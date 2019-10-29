@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <title>Tales</title>
+  <script src="{% static 'jQuery/jquery-3.4.1.js' %}"></script>
+  <script src="{% static 'jQuery/jquery-ui.js' %}"></script>
+  <script src="{% static 'jQuery/popper.min.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'Bootstrap/css/bootstrap.css' %}">
+  <script src="{% static 'Bootstrap/js/bootstrap.js' %}"></script>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'DataTables/jquery.dataTables.min.css' %}" />
+  <script src="{% static 'DataTables/jquery.dataTables.min.js' %}"></script>
+  <link href="{% static "icons/css/all.css" %}" rel="stylesheet">
+  <script defer src="{% static 'icons/js/all.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'css/override.css' %}">
+
+  <link rel="shortcut icon" type="image/png" href="{% static 'basic_app/pictures/logomini.png' %}" />
+
+
+</head>
+
+<body>
+
+
+  <div class="container">
+    <!-- {{ nav |safe }} -->
+    {% block body_block %}
+    {# Anything outside of this will be inherited if you use extend.#}
+    {% endblock %}
+  </div>
+  <div class="container">
+    {% block button_block %}
+    {# Anything outside of this will be inherited if you use extend.#}
+    {% endblock %}
+  </div>
+
+</body>
+
+<style>
+body {
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position-x: center;
+    background-color: #ffe68b;
+}
+</style>
+
+
+</html>

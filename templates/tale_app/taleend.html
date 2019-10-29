@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+{% extends "tale_app/talebase.html" %}
+
+{% block body_block%}
+{% load static %}
+<body>
+    <div class="center">
+        <h1 class="myText">This is the end of {{ item.name }}. :) <br/><br/> You earned {{ child_sessionscore }} ⭐!</h1>
+    </div>
+</body>
+</html>
+{% endblock %}

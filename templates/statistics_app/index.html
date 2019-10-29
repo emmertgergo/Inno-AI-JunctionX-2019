@@ -1,0 +1,64 @@
+{% extends "basic_app/base.html" %}
+{% block body_block%}
+{% load static%}
+<h1 class="mt-1">Statistics</h1>
+<div class="row mt-4">
+  <div class="col-3">
+    <div class="list-group" id="list-tab" role="tablist">
+
+
+      {% for tale in items %}
+      <a class="list-group-item list-group-item-action" id="list-t{{tale.0.id}}-list" data-toggle="list" href="#list-t{{tale.0.id}}" role="tab" aria-controls="home">{{tale.0.name}} Level {{tale.0.level}}</a>
+      {% endfor%}
+
+          </div>
+  </div>
+  <div class="col-8">
+    <div class="tab-content" id="nav-tabContent">
+
+      {% for tale in items %}
+      <div class="tab-pane fade show" id="list-t{{tale.0.id}}" role="tabpanel" aria-labelledby="list-home-list">
+
+
+        <div class="row">
+          <div class="col-3">
+            <div class="list-group" id="list-tab_t{{tale.0.id}}" role="tablist">
+
+              {% for session in tale.1 %}
+              <a class="list-group-item list-group-item-action" id="list-s{{session.id}}-list_t{{tale.0.id}}" data-toggle="list" href="#list-s{{session.id}}_t{{tale.0.id}}" role="tab" aria-controls="home"> {{session.date | date:'m.d H:i'}}</a>
+              {% endfor%}
+
+
+            </div>
+          </div>
+          <div class="col-8">
+            <div class="tab-content" id="nav-tab_t{{tale.0.id}}Content">
+
+              {% for session in tale.1 %}
+              <div class="tab-pane fade show" id="list-s{{session.id}}_t{{tale.0.id}}" role="tabpanel" aria-labelledby="list-home-list">
+
+              <img style="width: 500px; height: 500px;" src=" {{session.image_path}} ">
+
+
+
+
+              </div>
+
+              {% endfor%}
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      {% endfor %}
+
+
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

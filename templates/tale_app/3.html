@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% extends "tale_app/talebase.html" %}
+
+{% block body_block%}
+{%load static%}
+<body>
+    <div class="center">
+         <h1 class="myText"> {{ item.tasktext }}</h1>
+
+        <button data-id="{{item.id}}" type="button" class="myButton take_picture" >
+            Take a selfie!
+        </button>
+    </div>
+
+
+
+</body>
+</html>
+{% csrf_token %}
+
+
+
+
+{% endblock %}

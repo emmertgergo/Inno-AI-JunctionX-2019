@@ -1,1 +1,2 @@
-# Inno-AI-JunctionX-2019
+# JunctionX
+This is a repository for the JunctionX hackathon challenge.

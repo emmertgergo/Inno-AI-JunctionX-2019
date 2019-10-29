@@ -1,0 +1,46 @@
+{% extends "basic_app/base.html" %}
+{% load staticfiles %}
+
+{% block body_block %}
+<style>
+  .smallbox {width:250px;  float: right;  overflow: auto;}
+  .clearfix {
+    overflow: auto;
+
+  }
+  .right{float: right;}
+  .left{float: left;}
+  .rounded5{border-radius: 5px;}
+</style>
+
+  <div class="container">
+    <div class="jumbotron mt-4 clearfix">
+      {% if registered %}
+        <h1>Thank you for registering!</h1>
+      {% else %}
+      <div>
+        <h1>Register Here</h1>
+        <h3>Please fill out the form
+      </div>
+          <div class="left">
+            <img src="{% static 'pictures/children.jpg'%}" width="700" height="400" class="rounded5" alt="">
+
+          </div>
+
+      <div class="smallbox mr-5">
+        <form enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          {{ user_form.as_p }}
+          {{ profile_form.as_p }}
+          <input class="btn btn-success" type="submit" name="" value="Register">
+
+          <a class="btn btn-dark" href="{% url 'children_app:child' %}">Back To Sign In</a>
+        </form>
+      </div>
+      {% endif %}
+
+    </div>
+
+  </div>
+
+{% endblock %}
