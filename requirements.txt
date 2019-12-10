@@ -88,7 +88,7 @@ cffi==1.13.1
 chardet==3.0.4
 cryptography==2.8
 cycler==0.10.0
-Django==2.2.5
+Django==2.2.8
 django-next-prev==1.0.1
 django-qr-code==1.0.0
 django-storages==1.7.2
