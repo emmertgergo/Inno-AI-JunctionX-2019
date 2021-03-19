@@ -104,7 +104,7 @@ mysql-client==0.0.1
 mysqlclient==1.4.4
 numpy==1.17.3
 oauthlib==3.1.0
-Pillow==6.2.1
+Pillow==8.1.1
 pycparser==2.19
 PyJWT==1.7.1
 pyparsing==2.4.2
