@@ -92,7 +92,7 @@ Django==2.2.8
 django-next-prev==1.0.1
 django-qr-code==1.0.0
 django-storages==1.7.2
-djangorestframework==3.10.3
+djangorestframework==3.11.2
 djangorestframework-jwt==1.11.0
 idna==2.8
 isodate==0.6.0
